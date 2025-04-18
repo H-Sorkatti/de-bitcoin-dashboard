@@ -36,6 +36,7 @@ The following tools were used to make the project:
 
 
 
-## Screenshots![]()
+## Screenshots
+![](screens/metabase_dashboard.png)
 
 
