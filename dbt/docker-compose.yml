@@ -1,6 +1,7 @@
 services:
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:latest
+    container_name: dbt
     volumes:
       - "./dbt:/usr/app"
       - "/home/super/.dbt:/root/.dbt"
