@@ -1,0 +1,10 @@
+services:
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:latest
+    volumes:
+      - "./dbt:/usr/app"
+      - "/home/super/.dbt:/root/.dbt"
+    working_dir: /usr/app
+    #depends_on:
+     # - postgres
+    entrypoint: ["tail", "-f", "/dev/null"]

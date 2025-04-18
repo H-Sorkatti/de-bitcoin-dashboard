@@ -1,0 +1,11 @@
+id: kafka-producer
+namespace: de_project
+
+tasks:
+  - id: run-producer
+    type: io.kestra.plugin.scripts.shell.Commands
+    containerImage: python:3.11-alpine
+    beforeCommands:
+      - pip install kafka-python requests
+    commands:
+      - python /app/scripts/producer.py

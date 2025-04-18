@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: pg-database
+    ports:
+      - "5432:5432"
+    volumes:
+      - "ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
+    networks:
+      - pg-network
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+volumes:
+  ny_taxi_postgres_data:
+    name: ny_taxi_postgres_data
+    external: true
+
+networks:
+  pg-network:
+    driver: bridge
+    external: true

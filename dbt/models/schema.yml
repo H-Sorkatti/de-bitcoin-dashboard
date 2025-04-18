@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: project_bitcoin
+    database: kestra       # optional: only include if it's different from target database
+    schema: public         # schema where your source table lives
+    tables:
+      - name: project_bitcoin
